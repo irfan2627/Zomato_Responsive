@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Zomato</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ***** TITLE ICON **** -->
+    <link rel="icon" type="image/png" href="images/icon.png">
+
+    <!-- ***** BOOTSTRAP STYLESHEET **** -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/css/bootstrap-select-country.min.css" /> -->
+
+    <!-- ***** STYLESHEET **** -->
+    <link rel="stylesheet" href="style_zomato.css">
+
+    <!-- ***** JAVASCRIPT ***** -->
+    <script src="index.js"></script>
+
+    <!-- ***** ICONS **** -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="main-container">
+
+        <div class="container-header">
+            <div class="container-image">
+                <img src="images/header image.avif">
+            </div>
+            <nav>
+                <div class="navigation-bar">
+                    <div class="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" width="10" height="10"
+                            viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                            class="sc-rbbb40-0 gvsUip">
+                            <title>download-app</title>
+                            <path
+                                d="M18.5793 9.18939H16.5865H16.3199C15.7307 9.18939 15.2529 9.6672 15.2529 10.2583V10.3742C15.2529 10.9659 15.7307 11.444 16.3207 11.444H18.3156H18.5793C19.1696 11.444 19.6488 10.9639 19.6488 10.3742L19.6477 10.2569C19.6488 9.6672 19.1696 9.18939 18.5793 9.18939Z">
+                            </path>
+                            <path
+                                d="M18.5804 6.52262H18.1097V1.35122C18.1097 0.607964 17.5017 0 16.7582 0H7.84167C7.09841 0 6.49045 0.608249 6.49045 1.35122V5.06151C4.69196 6.07821 2.83696 7.14029 2.83296 7.14286C1.82597 7.5573 0.350586 8.89453 0.350586 12.0522C0.350586 12.3342 0.369139 12.5945 0.395113 12.846C0.40339 12.9197 0.412524 12.9904 0.422514 13.0615C0.448488 13.2462 0.481027 13.4229 0.519845 13.5907C0.533831 13.6506 0.544678 13.7131 0.559805 13.7705C0.612039 13.9646 0.67255 14.1467 0.740482 14.32C0.774733 14.4059 0.811839 14.4841 0.84923 14.5646C0.88919 14.6494 0.929436 14.7327 0.972535 14.8106C1.02249 14.9045 1.07244 14.995 1.12724 15.0809C1.14037 15.1009 1.15464 15.1192 1.16805 15.1394C2.46847 17.1052 4.8675 17.114 4.8675 17.114H6.49045V18.6494C6.49045 19.3918 7.09841 19.9997 7.84167 19.9997H16.7579C17.5014 19.9997 18.1094 19.3915 18.1094 18.6494V16.7767H18.3155V16.7755H18.5784C19.1695 16.7755 19.6487 16.2974 19.6476 15.7063L19.6487 15.5898C19.6476 14.9996 19.1695 14.5229 18.5792 14.5229H18.3155H16.5861H16.3195C15.7292 14.5229 15.2525 15.0007 15.2525 15.5907V15.7091C15.2525 16.2977 15.7304 16.7775 16.3203 16.7775H17.1692V17.5008H7.43036V7.79877C7.91959 7.48851 8.37256 7.18995 8.63088 6.98987C9.93957 5.97774 11.1818 5.17169 11.3499 4.4407C11.5688 3.49222 10.8407 2.69302 9.57765 3.34922C9.17976 3.55587 8.36315 4.00885 7.43036 4.53261V2.14129L17.1692 2.14271V6.52205H16.5861V6.52319H16.3209C15.7304 6.52319 15.2511 7.001 15.2511 7.59269V7.70858C15.2511 8.29999 15.7303 8.77665 16.3195 8.77665H16.5846H18.3141H18.5798C19.1695 8.77665 19.6476 8.29884 19.6476 7.70858V7.58955C19.6487 7.00186 19.1709 6.52262 18.5804 6.52262ZM12.2986 17.9752C12.6731 17.9752 12.9751 18.2774 12.9751 18.6511C12.9751 19.0255 12.6728 19.3267 12.2986 19.3267C11.9256 19.3267 11.6242 19.0247 11.6242 18.6511C11.6247 18.2786 11.927 17.9752 12.2986 17.9752ZM13.7266 1.30098H10.8735C10.7839 1.30098 10.7097 1.2282 10.7097 1.13829C10.7097 1.04695 10.7839 0.974169 10.8735 0.974169H13.7266C13.8163 0.974169 13.8893 1.04667 13.8893 1.13829C13.8893 1.22792 13.8163 1.30098 13.7266 1.30098Z">
+                            </path>
+                            <path
+                                d="M18.5788 11.8561H18.3151H16.3193C15.7302 11.8561 15.251 12.3353 15.251 12.9253V13.0423C15.251 13.6329 15.7291 14.1107 16.3193 14.1107H16.5845H18.3139H18.5782C19.1693 14.1107 19.646 13.6329 19.6474 13.0423V12.9253C19.6472 12.3353 19.1705 11.8561 18.5788 11.8561Z">
+                            </path>
+                        </svg>
+                        <a href="get_the_app"> Get the App</a>
+                    </div>
+                    <ul>
+                        <li class="a-text"><a href="investor_relations">Investor Relations</a></li>
+                        <li class="a-text"><a href="add_restaurant">Add Restaurant</a></li>
+                        <li class="a-text"><a href="login">Log In</a></li>
+                        <li class="a-text"><a href="signup">Sign Up</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="menu-bar">
+                    <span onclick="toggleMenu1()">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="fill: white;" height="1em" viewBox="0 0 448 512">
+                            <path
+                                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                        </svg>
+                    </span>
+                </div>
+
+                <div class="wrap-menu" id="wrapMenu">
+                    <div class="sub-menu">
+                        <div class="sub-menu-logo">
+                            <img src="images/imagezomatonew.png">
+                        </div>
+                        <ul>
+                            <li class="a-text"><a href="investor_relations">Investor Relations</a></li>
+                            <li class="a-text"><a href="add_restaurant">Add Restaurant</a></li>
+                            <li class="a-text"><a href="login">Log In</a></li>
+                            <li class="a-text"><a href="signup">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </nav>
+            <div class="header-body" id="wrapHead">
+                <div class="header-body-image">
+                    <img src="images/imagezomatonew.png">
+                </div>
+                <div class header-body-text>
+                    <h1 id="header-text">Discover the best food & drinks in Kochi</h1>
+                </div>
+
+                <div class="header-searchcontainer">
+
+                    <div class="search-main">
+                        <div class="location">
+                            <i class='fa fa-map-marker-alt' style='color: red'></i>
+                            <input type="text" placeholder="Kochi">
+                            <span id="loc-span" onclick="toggleMenu2()">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
+                                    <path
+                                        d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                                </svg>
+                            </span>
+
+                        </div>
+                        <div class="bar"></div>
+                        <div class="search">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#828282" width="18" height="18"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="sc-rbbb40-0 iwHbVQ">
+                                <title>Search</title>
+                                <path
+                                    d="M19.78 19.12l-3.88-3.9c1.28-1.6 2.080-3.6 2.080-5.8 0-5-3.98-9-8.98-9s-9 4-9 9c0 5 4 9 9 9 2.2 0 4.2-0.8 5.8-2.1l3.88 3.9c0.1 0.1 0.3 0.2 0.5 0.2s0.4-0.1 0.5-0.2c0.4-0.3 0.4-0.8 0.1-1.1zM1.5 9.42c0-4.1 3.4-7.5 7.5-7.5s7.48 3.4 7.48 7.5-3.38 7.5-7.48 7.5c-4.1 0-7.5-3.4-7.5-7.5z">
+                                </path>
+                            </svg>
+                            <input id=searchbox type="text" placeholder="Search for restaurant, cuisine or a dish">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="wrap-loc" id="wrapLoc">
+                    <div class="locmenu" id="locMenu">
+                        <div id="loc-menu-main">
+                            <div class="loc-drop" id="locDrop">
+                                <div id="ld-top">
+                                    <div id="ld-top-left">
+                                        <i class='fa-solid fa-location-crosshairs' style="color: red;"></i>
+                                    </div>
+                                    <di id="ld-top-right">
+                                        <a href="#">Detect current location</a>
+                                    </di>
+                                </div>
+                                <div id="ld-bot">
+                                    Using GPS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- firstsection -->
+
+        <div class="section1">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-image">
+                        <img
+                            src="https://b.zmtcdn.com/webFrontend/e5b8785c257af2a7f354f1addaf37e4e1647364814.jpeg?output-format=webp&fit=around|402:360&crop=402:360;*,*">
+                    </div>
+                    <h3 class="h">Order Online</h3>
+                    <p class="h">Stay home and order to your doorstep</p>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img
+                            src="https://b.zmtcdn.com/webFrontend/d026b357feb0d63c997549f6398da8cc1647364915.jpeg?output-format=webp&fit=around|402:360&crop=402:360;*,*">
+
+                    </div>
+                    <h3 class="h">Dining</h3>
+                    <p class="h">View the city's favourite dining venues</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- secondsection collections -->
+
+        <div class="container-class">
+            <div class="main-class">
+
+                <div class="collection-head">
+                    <h1>Collections</h1>
+                    <div class="chbar">
+                        <div class="chleft">
+                            <p>Explore curated lists of top restaurants, cafes, pubs, and bars in kochi, based on trends
+                            </p>
+                        </div>
+                        <div class="chright">
+                            <a href="">All collections in kochi ► </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+
+                    <div class="c-card">
+                        <div class="c-card-bg">
+                            <img src="images/food.avif" alt="">
+                        </div>
+                        <div class="c-card-text">
+                            <h6>13 Places For Onam Celeb... </h6>
+                            <p>12Places ►</p>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card-bg">
+                            <img src="images/art.avif" alt="">
+                        </div>
+                        <div class="c-card-text">
+                            <h6>8 Places for Art Lovers </h6>
+                            <p>8 Places ►</p>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card-bg">
+                            <img src="images/greatcafe.avif" alt="">
+                        </div>
+                        <div class="c-card-text">
+                            <h6>14 Great Cafes </h6>
+                            <p> 15 Places ►</p>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card-bg">
+                            <img src="images/biriyani.avif" alt="">
+                        </div>
+                        <div class="c-card-text">
+                            <h6>6 Places for Authentic Ku.. </h6>
+                            <p>5 Places ► </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- thirdsection localities -->
+
+
+        <div class="container-class">
+            <div class="main-class">
+
+                <div class="loc-container">
+
+                    <div class="loc-head">
+                        <h1>Popular localities in and around kochi</h1>
+                    </div>
+
+                    <div class="loc-body">
+
+                        <div class="gridstyle">
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">Kakkanad</h5>
+                                    <p class="class5">388 places</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">Edapally</h5>
+                                    <p class="class5">298 places</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">Fort Kochi</h5>
+                                    <p class="class5">114 places</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">Panampally Nagar</h5>
+                                    <p class="class5">89 places</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">MG Road</h5>
+                                    <p class="class5">89 Placed</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">Kacheripady</h5>
+                                    <p class="class5">101 places</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">Palarivattom</h5>
+                                    <p class="class5">135 places</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2">
+                                <div class="class3">
+                                    <h5 class="class4">Vyttila</h5>
+                                    <p class="class5">119 places</p>
+                                </div>
+                                <!-- <i class="class6" size="15" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="15" height="15"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-right</title>
+                                    <path
+                                        d="M6.98 15.94c-0.3-0.28-0.3-0.76 0-1.060l4.46-4.46-4.46-4.48c-0.3-0.28-0.3-0.76 0-1.060s0.76-0.28 1.060 0l5 5c0.28 0.3 0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+                            <div class="class2-1">
+                                <div class="class3">
+                                    <h6 class="class4">see more</h6>
+                                </div>
+                                <!-- <i class="class6" size="18" color="#1C1C1C"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="18" height="18"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="class7">
+                                    <title>chevron-down</title>
+                                    <path
+                                        d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z">
+                                    </path>
+                                </svg>
+                                <!-- </i> -->
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 4 section app bar  -->
+
+
+        <div class="app-container">
+
+            <div class="app-main">
+                <div class="mobile">
+                    <img src="images/mobile.png" alt="">
+                </div>
+                <div class="app-content">
+                    <h1>Get the Zomato app</h1>
+                    <p>We will send you a link, open it on your phone to download the app</p>
+
+                    <div class="input1">
+                        <div class="mail">
+                            <input type="radio" name="share" id="radio1">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="phone">
+                            <input type="radio" name="share" id="">
+                            <label for="">Phone</label>
+                        </div>
+                    </div>
+
+                    <div class="input2">
+                        <div>
+                            <input type="text" name="" id="textbox" placeholder="Email">
+                        </div>
+                        <div>
+                            <input type="button" id="sharebox" value="Share App Link">
+                        </div>
+                    </div>
+
+                    <p id="download">Download app from</p>
+                    <div class="store">
+                        <img src="images/playstore.png" alt="">
+                        <img src="images/app store.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- **** 5 section explore -->
+
+        <div class="container-class">
+            <div class="main-class">
+
+                <div class="explore">
+
+                    <h1>Explore options near me</h1>
+
+                    <div class="ex-cards">
+
+                        <div id="ex-card" onclick="toggleMenu3()">
+
+                            <div class="card-head">
+                                <h5 class="title-text">Popular cuisines near me</h5>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="down-arrow">
+                                    <title>chevron-down</title>
+                                    <path
+                                        d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <div class="card-text" id="wrapText">
+                                <div>
+                                    <a href="https://www.zomato.com/arabian-restaurants-near-me" class="cls2">Arabian
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https: //www.zomato.com/bakery-restaurants-near-me" class="cls2">Bakery
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https: //www.zomato.com/beverages-restaurants-near-me"
+                                        class="cls2">Beverages food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https: //www.zomato.com/biryani-restaurants-near-me" class="cls2">Biryani
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https: //www.zomato.com/burger-restaurants-near-me" class="cls2">Burger
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/chinese-restaurants-near-me" class="cls2">Chinese
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/continental-restaurants-near-me"
+                                        class="cls2">Continental food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/desserts-restaurants-near-me" class="cls2">Desserts
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/ice-cream-restaurants-near-me" class="cls2">Ice
+                                        Cream food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/juices-restaurants-near-me" class="cls2">Juices food
+                                        near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/kerala-restaurants-near-me" class="cls2">Kerala
+                                        food near
+                                        me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/north-indian-restaurants-near-me" class="cls2">North
+                                        Indian food
+                                        near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/pizza-restaurants-near-me" class="cls2">Pizza food
+                                        near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/sandwich-restaurants-near-me" class="cls2">Sandwich
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/seafood-restaurants-near-me" class="cls2">Seafood
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/" class="cls2">Shake food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/shawarma-restaurants-near-me" class="cls2">Shawarma
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/sichuan-restaurants-near-me" class="cls2">Sichuan
+                                        food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/south-indian-restaurants-near-me" class="cls2">South
+                                        Indian food near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/street-food-restaurants-near-me" class="cls2">Street
+                                        food near me</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div id="ex-card">
+                            
+                            <div class="card-head" data-bs-toggle="collapse" data-bs-target="#demo2">
+                                <h5 class="title-text">Popular restaurant types near me</h5>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="down-arrow">
+                                    <title>chevron-down</title>
+                                    <path
+                                        d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <div id="demo2" class="collapse">
+                                <div class="card-text">
+                                    <a href="https://www.zomato.com/bakeries-near-me" class="cls2">Bakeries near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/bars-near-me" class="cls2">Bars near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/beverage-shops-near-me" class="cls2">Beverage Shops
+                                        near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/cafes-near-me" class="cls2">Cafés near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/casual-dining-near-me" class="cls2">Casual Dining
+                                        near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/cocktail-bars-near-me" class="cls2">Cocktail Bars
+                                        near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/confectioneries-near-me"
+                                        class="cls2">Confectioneries near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/dessert-parlor-near-me" class="cls2">Dessert Parlors
+                                        near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/dhabas-near-me" class="cls2">Dhabas near me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/fine-dining-near-me" class="cls2">Fine Dining near
+                                        me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/food-courts-near-me" class="cls2">Food Courts near
+                                        me</a>
+                                    <span class="cls3"></span>
+                                    <a href="https://www.zomato.com/food-trucks-near-me" class="cls2">Food Trucks near
+                                        me</a>
+                                    <span class="cls3"></span>
+                                    <ahref="https://www.zomato.com/kiosks-near-me" class="cls2">Kiosks near me</a>
+                                        <span class="cls3"></span>
+                                        <a href="https://www.zomato.com/lounges-near-me" class="cls2">Lounges near
+                                            me</a>
+                                        <span class="cls3"></span>
+                                        <ahref="https://www.zomato.com/paan-shop-near-me" class="cls2">Paan Shop near
+                                            me</a>
+                                            <span class="cls3"></span>
+                                            <a href="https://www.zomato.com/quick-bites-near-me" class="cls2">Quick
+                                                Bites near me</a>
+                                            <span class="cls3"></span>
+                                            <a href="https://www.zomato.com/sweet-shops-near-me" class="cls2">Sweet
+                                                Shops near me</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="ex-card">
+
+                            <div class="card-head" data-bs-toggle="collapse" data-bs-target="#demo3">
+                                <h5 class="title-text">Top restaurants Chains</h5>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="down-arrow">
+                                    <title>chevron-down</title>
+                                    <path
+                                        d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z">
+                                    </path>
+                                </svg>
+                            </div>
+
+
+                            <div id="demo3" class="collapse">
+                                <div class="card-text-2">
+                                    <a href="https://www.zomato.com/kochi/restaurants/burger-king" class="cls2">Burger
+                                        King</a>
+                                    <a href="https://www.zomato.com/kochi/restaurants/kfc" class="cls2">KFC</a>
+                                    <a href="https://www.zomato.com/kochi/restaurants/mcdonalds"
+                                        class="cls2">McDonald's</a>
+                                    <a href="https://www.zomato.com/kochi/restaurants/pizza-hut" class="cls2">Pizza
+                                        Hut</a>
+                                    <a href="https://www.zomato.com/kochi/restaurants/wow-momo" class="cls2">WOW!
+                                        Momo</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="ex-card">
+
+                            <div class="card-head" data-bs-toggle="collapse" data-bs-target="#demo4">
+                                <h5 class="title-text">Cities We Deliver To</h5>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20"
+                                    viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                    class="down-arrow">
+                                    <title>chevron-down</title>
+                                    <path
+                                        d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div id="demo4" class="collapse">   
+                                <div class="card-text-2">
+                                    <a href="https://www.zomato.com/ncr/" class="cls4">Delhi NCR</a>
+                                    <a href="https://www.zomato.com/kolkata/" class="cls4">Kolkata</a>
+                                    <a href="https://www.zomato.com/mumbai/" class="cls4">Mumbai</a>
+                                    <a href="https://www.zomato.com/bangalore/" class="cls4">Bengaluru</a>
+                                    <a href="https://www.zomato.com/pune/" class="cls4">Pune</a>
+                                    <a href="https://www.zomato.com/hyderabad/" class="cls4">Hyderabad</a>
+                                    <a href="https://www.zomato.com/chennai/" class="cls4">Chennai</a>
+                                    <a href="https://www.zomato.com/lucknow/" class="cls4">Lucknow</a>
+                                    <a href="https://www.zomato.com/kochi/" class="cls4">Kochi</a>
+                                    <a href="https://www.zomato.com/jaipur/" class="cls4">Jaipur</a>
+                                    <a href="https://www.zomato.com/ahmedabad/" class="cls4">Ahmedabad</a>
+                                    <a href="https://www.zomato.com/chandigarh/" class="cls4">Chandigarh</a>
+                                    <a href="https://www.zomato.com/goa/" class="cls4">Goa</a>
+                                    <a href="https://www.zomato.com/indore/" class="cls4">Indore</a>
+                                    <a href="https://www.zomato.com/gangtok/" class="cls4">Gangtok</a>
+                                    <a href="https://www.zomato.com/nashik/" class="cls4">Nashik</a>
+                                    <a href="https://www.zomato.com/ooty/" class="cls4">Ooty</a>
+                                    <a href="https://www.zomato.com/shimla/" class="cls4">Shimla</a>
+                                    <a href="https://www.zomato.com/ludhiana/" class="cls4">Ludhiana</a>
+                                    <a href="https://www.zomato.com/guwahati/" class="cls4">Guwahati</a>
+                                    <a href="https://www.zomato.com/amritsar/" class="cls4">Amritsar</a>
+                                    <a href="https://www.zomato.com/kanpur/" class="cls4">Kanpur</a>
+                                    <a href="https://www.zomato.com/allahabad/" class="cls4">Allahabad</a>
+                                    <a href="https://www.zomato.com/aurangabad/" class="cls4">Aurangabad</a>
+                                    <a href="https://www.zomato.com/bhopal/" class="cls4">Bhopal</a>
+                                    <a href="https://www.zomato.com/ranchi/" class="cls4">Ranchi</a>
+                                    <a href="https://www.zomato.com/visakhapatnam/" class="cls4">Visakhapatnam</a>
+                                    <a href="https://www.zomato.com/bhubaneswar/" class="cls4">Bhubaneswar</a>
+                                    <a href="https://www.zomato.com/coimbatore/" class="cls4">Coimbatore</a>
+                                    <a href="https://www.zomato.com/mangalore/" class="cls4">Mangalore</a>
+                                    <a href="https://www.zomato.com/vadodara/" class="cls4">Vadodara</a>
+                                    <a href="https://www.zomato.com/nagpur/" class="cls4">Nagpur</a>
+                                    <a href="https://www.zomato.com/agra/" class="cls4">Agra</a>
+                                    <a href="https://www.zomato.com/dehradun/" class="cls4">Dehradun</a>
+                                    <a href="https://www.zomato.com/mysore/" class="cls4">Mysore</a>
+                                    <a href="https://www.zomato.com/puducherry/" class="cls4">Puducherry</a>
+                                    <a href="https://www.zomato.com/surat/" class="cls4">Surat</a>
+                                    <a href="https://www.zomato.com/varanasi/" class="cls4">Varanasi</a>
+                                    <a href="https://www.zomato.com/patna/" class="cls4">Patna</a>
+                                    <a href="https://www.zomato.com/udaipur/" class="cls4">Udaipur</a>
+                                    <a href="https://www.zomato.com/srinagar/" class="cls4">Srinagar</a>
+                                    <a href="https://www.zomato.com/khajuraho/" class="cls4">Khajuraho</a>
+                                    <a href="https://www.zomato.com/neemrana/" class="cls4">Neemrana</a>
+                                    <a href="https://www.zomato.com/cuttack/" class="cls4">Cuttack</a>
+                                    <a href="https://www.zomato.com/trivandrum/" class="cls4">Trivandrum</a>
+                                    <a href="https://www.zomato.com/haridwar/" class="cls4">Haridwar</a>
+                                    <a href="https://www.zomato.com/leh/" class="cls4">Leh</a>
+                                    <a href="https://www.zomato.com/pushkar/" class="cls4">Pushkar</a>
+                                    <a href="https://www.zomato.com/rajkot/" class="cls4">Rajkot</a>
+                                    <a href="https://www.zomato.com/madurai/" class="cls4">Madurai</a>
+                                    <a href="https://www.zomato.com/kozhikode/" class="cls4">Kozhikode</a>
+                                    <a href="https://www.zomato.com/alappuzha/" class="cls4">Alappuzha</a>
+                                    <a href="https://www.zomato.com/thrissur/" class="cls4">Thrissur</a>
+                                    <a href="https://www.zomato.com/manipal/" class="cls4">Manipal</a>
+                                    <a href="https://www.zomato.com/vijayawada/" class="cls4">Vijayawada</a>
+                                    <a href="https://www.zomato.com/jodhpur/" class="cls4">Jodhpur</a>
+                                    <a href="https://www.zomato.com/kota/" class="cls4">Kota</a>
+                                    <a href="https://www.zomato.com/ajmer/" class="cls4">Ajmer</a>
+                                    <a href="https://www.zomato.com/mussoorie/" class="cls4">Mussoorie</a>
+                                    <a href="https://www.zomato.com/rishikesh/" class="cls4">Rishikesh</a>
+                                    <a href="https://www.zomato.com/jalandhar/" class="cls4">Jalandhar</a>
+                                    <a href="https://www.zomato.com/jammu/" class="cls4">Jammu</a>
+                                    <a href="https://www.zomato.com/manali/" class="cls4">Manali</a>
+                                    <a href="https://www.zomato.com/dharamshala/" class="cls4">Dharamshala</a>
+                                    <a href="https://www.zomato.com/delivery-cities" id="cls5">See more</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <!-- **** FOOTER **** -->
+
+        <div class="footer">
+            <div class="footer-main">
+
+                <div class="footer-head">
+                    <div class="footer-left-section">
+                        <img
+                            src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png?fit=around|198:42&amp;crop=198:42;*,*">
+                    </div>
+                    <div class="footer-right-section">
+
+                        <div class="country">
+                            <div class="flag">
+                                <img class="footer-section-img" src="images/flag.png" alt="">
+                            </div>
+                            <p>India</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="down-arrow">
+                                <title>chevron-down</title>
+                                <path
+                                    d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <div class="language">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="18" height="18"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="sc-rbbb40-0 iwHbVQ">
+                                <title>language-globe</title>
+                                <path
+                                    d="M10 0c-5.523 0-10 4.477-10 10s4.477 10 10 10c5.523 0 10-4.477 10-10v0c-0.011-5.518-4.482-9.989-9.999-10h-0.001zM17.14 6.18h-3c-0.264-1.393-0.63-2.62-1.107-3.791l0.047 0.131c1.755 0.733 3.161 2.010 4.039 3.618l0.021 0.042zM18.1 10c-0.002 0.676-0.090 1.33-0.252 1.954l0.012-0.054h-3.44c0.059-0.57 0.092-1.231 0.092-1.9s-0.034-1.33-0.099-1.982l0.007 0.082h3.44c0.15 0.57 0.238 1.224 0.24 1.899v0.001zM1.9 10c0.002-0.676 0.090-1.33 0.252-1.954l-0.012 0.054h3.46c-0.059 0.57-0.092 1.231-0.092 1.9s0.034 1.33 0.099 1.982l-0.007-0.082h-3.46c-0.15-0.57-0.238-1.224-0.24-1.899v-0.001zM7.48 8.1h5.040c0.063 0.57 0.099 1.231 0.099 1.9s-0.036 1.33-0.107 1.981l0.007-0.081h-5.040c-0.063-0.57-0.099-1.231-0.099-1.9s0.036-1.33 0.107-1.981l-0.007 0.081zM10.76 1.9c0.603 1.228 1.106 2.657 1.436 4.152l0.024 0.128h-4.44c0.354-1.623 0.857-3.052 1.51-4.395l-0.050 0.115c0.24 0 0.5 0 0.76 0s0.48 0 0.76 0zM6.96 2.48c-0.445 1.051-0.825 2.291-1.079 3.576l-0.021 0.124h-3c0.899-1.65 2.305-2.927 4.007-3.64l0.053-0.020zM2.86 13.8h3c0.262 1.4 0.629 2.634 1.107 3.811l-0.047-0.131c-1.757-0.738-3.165-2.022-4.039-3.637l-0.021-0.043zM9.24 18.1c-0.605-1.234-1.108-2.67-1.437-4.172l-0.023-0.128h4.44c-0.352 1.63-0.855 3.066-1.51 4.415l0.050-0.115c-0.24 0-0.5 0-0.76 0s-0.48 0-0.76 0zM13.040 17.52c0.431-1.046 0.798-2.28 1.041-3.558l0.019-0.122h3.040c-0.902 1.642-2.308 2.912-4.006 3.62l-0.054 0.020z">
+                                </path>
+                            </svg>
+                            <p>English</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="down-arrow">
+                                <title>chevron-down</title>
+                                <path
+                                    d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z">
+                                </path>
+                            </svg>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-text">
+                    <div class="list">
+                        <h4 class="foot-h">ABOUT ZOMATO</h4><br>
+                        <p>Who We Are</p><br>
+                        <p>Blog</p><br>
+                        <p>Work With Us</p><br>
+                        <p>Investor Relations</p><br>
+                        <p>Report Fraud</p><br>
+                        <p>Contact Us</p>
+                    </div>
+                    <div class="list">
+                        <h4 class="foot-h">ZOMAVERSE</h4><br>
+                        <p>Zomato</p><br>
+                        <p>Blinkit</p><br>
+                        <p>Feeding India</p><br>
+                        <p>Hyperpure</p><br>
+                        <p>Zomaland</p>
+                    </div>
+                    <div class="list">
+                        <h4 class="foot-h">FOR RESTAURANTS</h4><br>
+                        <p>Partner With Us</p><br>
+                        <p>Apps For You</p><br>
+                        <p><br></p><br>
+                        <h4 class="foot-h">FOR ENTERPRISES</h4><br>
+                        <p>Zomato For Enterprise</p>
+                    </div>
+                    <div class="list">
+                        <h4 class="foot-h">LEARN MORE</h4><br>
+                        <p>Privacy</p><br>
+                        <p>Security</p><br>
+                        <p>terms</p><br>
+                        <p>Sitemap</p>
+                    </div>
+                    <div class="list">
+                        <h4 class="foot-h">SOCIAL LINKS</h4><br>
+                        <p class="icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="sc-rbbb40-0 cvuzKA">
+                                <path
+                                    d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM7.0625 8.375H4.75V15.4375H7.0625V8.375ZM7.25 6.1875C7.25 5.5 6.75 5 5.9375 5C5.125 5 4.5625 5.5 4.5625 6.1875C4.5625 6.875 5.0625 7.4375 5.875 7.4375C6.6875 7.4375 7.25 6.875 7.25 6.1875ZM15.5 11.375C15.5 9.1875 14.3125 8.1875 12.8125 8.1875C11.5625 8.1875 11 8.875 10.6875 9.375V8.375H8.375C8.375 9.0625 8.375 15.4375 8.375 15.4375H10.6875V11.5C10.6875 11.3125 10.6875 11.0625 10.75 10.9375C10.9375 10.5 11.3125 10.0625 11.9375 10.0625C12.75 10.0625 13.125 10.6875 13.125 11.6875V15.4375H15.4375C15.5 15.4375 15.5 11.375 15.5 11.375Z">
+                                </path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="sc-rbbb40-0 cvuzKA">
+                                <path
+                                    d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM10.1875 5C8.8125 5 8.625 5 8.0625 5C7.5 5.0625 7.125 5.125 6.8125 5.25C6.5 5.375 6.1875 5.5625 5.875 5.875C5.5625 6.1875 5.375 6.4375 5.25 6.8125C5.125 7.125 5 7.5 5 8.0625C5 8.625 5 8.75 5 10.1875C5 11.625 5 11.8125 5.0625 12.375C5.0625 12.9375 5.1875 13.3125 5.3125 13.625C5.4375 13.9375 5.625 14.25 5.9375 14.5625C6.1875 14.8125 6.5 15 6.875 15.1875C7.1875 15.3125 7.5625 15.4375 8.125 15.4375C8.6875 15.4375 8.875 15.5 10.25 15.5C11.6875 15.5 11.875 15.5 12.4375 15.4375C13 15.375 13.375 15.3125 13.6875 15.1875C14 15.0625 14.3125 14.875 14.625 14.5625C14.9375 14.25 15.125 14 15.25 13.625C15.375 13.3125 15.5 12.875 15.5 12.375C15.5625 11.8125 15.5625 11.625 15.5625 10.1875C15.5625 8.75 15.5625 8.625 15.5 8.0625C15.5 7.5 15.375 7.125 15.25 6.8125C15.125 6.4375 14.9375 6.1875 14.625 5.875C14.375 5.625 14.0625 5.4375 13.6875 5.25C13.375 5.125 12.9375 5.0625 12.4375 5C11.8125 5 11.625 5 10.1875 5ZM9.75 5.9375C9.875 5.9375 10.0625 5.9375 10.1875 5.9375C11.5625 5.9375 11.75 5.9375 12.3125 5.9375C12.8125 5.9375 13.0625 6.0625 13.25 6.125C13.5 6.25 13.6875 6.375 13.875 6.5C14.0625 6.625 14.1875 6.8125 14.25 7.125C14.3125 7.3125 14.4375 7.5625 14.4375 8.0625C14.5 8.625 14.5 8.8125 14.5 10.1875C14.5 11.5625 14.5 11.75 14.4375 12.3125C14.4375 12.8125 14.3125 13.125 14.25 13.3125C14.1875 13.5625 14.0625 13.6875 13.875 13.9375C13.6875 14.125 13.5 14.1875 13.25 14.3125C13.0625 14.375 12.8125 14.5 12.3125 14.5C11.75 14.5 11.5625 14.5625 10.1875 14.5625C8.8125 14.5625 8.625 14.5625 8.0625 14.5C7.5625 14.5 7.3125 14.375 7.125 14.3125C6.875 14.1875 6.6875 14.125 6.5 13.9375C6.3125 13.75 6.1875 13.5625 6.125 13.3125C6.0625 13.125 6 12.875 5.9375 12.3125C5.9375 11.75 5.9375 11.625 5.9375 10.1875C5.9375 8.8125 5.9375 8.625 5.9375 8.0625C6 7.5625 6.0625 7.3125 6.125 7.125C6.25 6.875 6.375 6.6875 6.5 6.5C6.625 6.3125 6.875 6.1875 7.125 6.125C7.3125 6.0625 7.5625 5.9375 8.0625 5.9375C8.5625 5.9375 8.75 5.9375 9.75 5.9375ZM13 6.8125C12.6875 6.8125 12.375 7.0625 12.375 7.4375C12.375 7.8125 12.625 8.0625 13 8.0625C13.375 8.0625 13.625 7.8125 13.625 7.4375C13.625 7.0625 13.3125 6.8125 13 6.8125ZM10.1875 7.5C8.75 7.5 7.5 8.6875 7.5 10.1875C7.5 11.6875 8.6875 12.875 10.1875 12.875C11.6875 12.875 12.875 11.6875 12.875 10.1875C12.875 8.6875 11.6875 7.5 10.1875 7.5ZM10.1875 8.4375C11.125 8.4375 11.9375 9.1875 11.9375 10.1875C11.9375 11.1875 11.1875 11.9375 10.1875 11.9375C9.25 11.9375 8.4375 11.1875 8.4375 10.1875C8.4375 9.1875 9.25 8.4375 10.1875 8.4375Z">
+                                </path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="sc-rbbb40-0 cvuzKA">
+                                <path
+                                    d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM10.0625 8.125V8.5L9.6875 8.4375C8.3125 8.25 7.125 7.6875 6.125 6.6875L5.625 6.1875L5.5 6.5625C5.25 7.375 5.375 8.25 5.9375 8.8125C6.25 9.125 6.1875 9.1875 5.6875 9C5.5 8.9375 5.375 8.875 5.3125 8.9375C5.25 9 5.4375 9.6875 5.5625 9.9375C5.75 10.3125 6.1875 10.6875 6.5625 10.875L6.9375 11.0625H6.5C6.0625 11.0625 6.0625 11.0625 6.125 11.25C6.3125 11.75 6.875 12.25 7.5625 12.5L8 12.6875L7.625 12.9375C7 13.3125 6.3125 13.5 5.625 13.5C5.3125 13.5 5 13.5625 5 13.5625C5 13.625 5.9375 14.0625 6.4375 14.25C8.0625 14.75 9.9375 14.5 11.375 13.6875C12.375 13.0625 13.375 11.875 13.875 10.75C14.125 10.125 14.375 9 14.375 8.5C14.375 8.1875 14.4375 8.125 14.8125 7.6875C15.0625 7.4375 15.3125 7.1875 15.3125 7.0625C15.375 6.9375 15.375 6.9375 15 7.0625C14.375 7.3125 14.25 7.25 14.625 6.875C14.875 6.625 15.125 6.1875 15.125 6.0625C15.125 6.0625 15 6.0625 14.875 6.125C14.75 6.1875 14.4375 6.3125 14.1875 6.375L13.8125 6.5L13.5 6.25C13.3125 6.125 13 5.9375 12.875 5.9375C12.5 5.8125 11.9375 5.8125 11.5625 6C10.5625 6.25 10 7.1875 10.0625 8.125Z">
+                                </path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="sc-rbbb40-0 cvuzKA">
+                                <path
+                                    d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM15.1875 7.4375C15.0625 7 14.6875 6.625 14.25 6.5C13.4375 6.25 10.1875 6.25 10.1875 6.25C10.1875 6.25 6.9375 6.25 6.125 6.5C5.6875 6.625 5.3125 7 5.1875 7.4375C5 8.25 5 10 5 10C5 10 5 11.75 5.25 12.5625C5.375 13 5.75 13.375 6.1875 13.5C7 13.75 10.25 13.75 10.25 13.75C10.25 13.75 13.5 13.75 14.3125 13.5C14.75 13.375 15.125 13 15.25 12.5625C15.5 11.75 15.5 10 15.5 10C15.5 10 15.4375 8.25 15.1875 7.4375ZM9.25 11.75V8.5L11.875 10.125L9.25 11.75Z">
+                                </path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22"
+                                viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"
+                                class="sc-rbbb40-0 cvuzKA">
+                                <path
+                                    d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM10.75 15.4375V10.1875H12.1875L12.375 8.375H10.75V7.5C10.75 7.0625 10.8125 6.8125 11.5 6.8125H12.375V5H10.9375C9.1875 5 8.625 5.875 8.625 7.3125V8.375H7.5V10.1875H8.5625V15.4375C8.5625 15.4375 10.75 15.4375 10.75 15.4375Z">
+                                </path>
+                            </svg>
+                        </p><br>
+                        <p>
+                            <img src="images/app store.png" alt="">
+                        </p><br>
+                        <p>
+                            <img src="images/playstore.png" alt="">
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-end">
+
+                    <p>By continuing past this page, you agreee to our Terms of Service, Cookie Policy, Privacy Policy
+                        and Content Policies. All trademarks are properties of their respective owners. 2008- 2023 ©
+                        Zomato™ Ltd. All rights reserved.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- ***** BOOTSTRAP JAVASCRIPT ***** -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <!-- <script src="//cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+    <script src="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <script src="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/js/bootstrap-select-country.min.js"></script> -->
+
+</body>
+
+</html>
